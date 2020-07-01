@@ -16,12 +16,45 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xInput = Input.GetAxis("Horizontal");
-        float zInput = Input.GetAxis("Vertical");
-        float xSpeed = xInput * speed;
-        float zSpeed = zInput * speed;
-        Vector3 newVelocity = new Vector3(xSpeed, 0f, zSpeed);
-        playerRigidbody.velocity = newVelocity;
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            Debug.Log("앞으로~");
+            transform.position = new Vector3(
+                transform.position.x,
+                transform.position.y,
+                transform.position.z + speed * Time.deltaTime
+                );
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            Debug.Log("뒤로~");
+            transform.position = new Vector3(
+                transform.position.x,
+                transform.position.y,
+                transform.position.z - speed * Time.deltaTime
+                );
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            Debug.Log("왼쪽으로");
+            transform.position = new Vector3(
+                transform.position.x - speed * Time.deltaTime,
+                transform.position.y,
+                transform.position.z
+                );
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            Debug.Log("오른쪽으로");
+            transform.position = new Vector3(
+                transform.position.x + speed * Time.deltaTime,
+                transform.position.y,
+                transform.position.z
+                );
+        }
     }
 
     public void Die()

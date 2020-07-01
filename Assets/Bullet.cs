@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 8f;
+    public float time = 5f;
+    public float speedMin = 3f;
+    public float speedMax = 6f;
     private Rigidbody bulletRigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
         bulletRigidbody = GetComponent<Rigidbody>();
-        bulletRigidbody.velocity = transform.forward * speed;
-        Destroy(gameObject, 3f);
+        bulletRigidbody.velocity = transform.forward * Random.Range(speedMin, speedMax);
+        Destroy(gameObject, time*3);
     }
 
     void OnTriggerEnter(Collider other)

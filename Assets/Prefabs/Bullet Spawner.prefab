@@ -95,4 +95,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3228702385747150532, guid: dcb704ca7143818409e85a4893fa3360,
     type: 3}
   spawnRateMin: 0.5
-  spawnRateMax: 3
+  spawnRateMax: 0.5
